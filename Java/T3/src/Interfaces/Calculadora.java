@@ -6,8 +6,6 @@
 package Interfaces;
 
 import java.awt.Font;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -193,7 +191,7 @@ public class Calculadora extends javax.swing.JFrame {
             iNum2 = Double.parseDouble(num2.getText());
             //cajaDiv.setText(Double.toString((Math.round((iNum1 / iNum2) * 100d)) / 100d)); // pasar a string el resultado (limitar a 2 decimales el resultado)
             // o :
-            cajaDiv.setText(String.format("%.2f", (iNum1 / iNum2))); // otra forma pasa limitar decimales, el string.format ya te devuelve un string, por lo que no hace falta hacerle el toString
+            cajaDiv.setText(String.format("%.2f", (iNum1 / iNum2)).replace(",", ".")); // otra forma pasa limitar decimales, el string.format ya te devuelve un string, por lo que no hace falta hacerle el toString.
             cajaSuma.setText(Double.toString(iNum1 + iNum2));
             cajaResta.setText(Double.toString(iNum1 - iNum2));
             cajaMulti.setText(Double.toString(iNum1 * iNum2));
