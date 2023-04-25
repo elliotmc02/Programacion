@@ -192,9 +192,9 @@ public class Calculadora extends javax.swing.JFrame {
             //cajaDiv.setText(Double.toString((Math.round((iNum1 / iNum2) * 100d)) / 100d)); // pasar a string el resultado (limitar a 2 decimales el resultado)
             // o :
             cajaDiv.setText(String.format("%.2f", (iNum1 / iNum2)).replace(",", ".")); // otra forma pasa limitar decimales, el string.format ya te devuelve un string, por lo que no hace falta hacerle el toString.
-            cajaSuma.setText(Double.toString(iNum1 + iNum2));
-            cajaResta.setText(Double.toString(iNum1 - iNum2));
-            cajaMulti.setText(Double.toString(iNum1 * iNum2));
+            cajaSuma.setText(String.format("%.2f", (iNum1 + iNum2)).replace(",", "."));
+            cajaResta.setText(String.format("%.2f", (iNum1 - iNum2)).replace(",", "."));
+            cajaMulti.setText(String.format("%.2f", (iNum1 * iNum2)).replace(",", "."));
             tError.setText(""); // por si ha habido un error antes, si todo se ejecuta bien, se limpia el texto de error
         } catch (NumberFormatException e) { // si introduces cadenas
             tError.setText("ERROR. Debes introducir numeros.");
