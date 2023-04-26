@@ -5,6 +5,8 @@
  */
 package Interfaces;
 
+import java.awt.Color;
+
 /**
  *
  * @author usuario
@@ -14,8 +16,13 @@ public class E138 extends javax.swing.JFrame {
     /**
      * Creates new form E138
      */
+    boolean negro;
+
     public E138() {
         initComponents();
+        setLocationRelativeTo(null);
+        setResizable(false);
+        negro = true;
     }
 
     /**
@@ -27,17 +34,46 @@ public class E138 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
+        tField = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        tArea = new javax.swing.JTextArea();
+        boton = new javax.swing.JButton();
+        tBoton = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextField1.setText("jTextField1");
+        tField.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                tFieldCaretUpdate(evt);
+            }
+        });
+        tField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tFieldActionPerformed(evt);
+            }
+        });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        tArea.setBackground(new java.awt.Color(0, 0, 0));
+        tArea.setColumns(20);
+        tArea.setForeground(new java.awt.Color(255, 255, 255));
+        tArea.setRows(5);
+        tArea.setFocusable(false);
+        jScrollPane1.setViewportView(tArea);
+
+        boton.setText("Añadir");
+        boton.setToolTipText("");
+        boton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonActionPerformed(evt);
+            }
+        });
+
+        tBoton.setText("Cambiar color");
+        tBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tBotonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -46,25 +82,59 @@ public class E138 extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(77, 77, 77)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(99, 99, 99)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1)
+                            .addComponent(tField)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(162, 162, 162)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(109, Short.MAX_VALUE))
+                        .addGap(170, 170, 170)
+                        .addComponent(boton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(147, 147, 147)
+                        .addComponent(tBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(107, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(48, 48, 48)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(tField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(boton)
+                .addGap(30, 30, 30)
+                .addComponent(tBoton)
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void tFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tFieldActionPerformed
+        tArea.setText(tField.getText());
+    }//GEN-LAST:event_tFieldActionPerformed
+
+    private void tFieldCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_tFieldCaretUpdate
+        tArea.setText(tField.getText());
+    }//GEN-LAST:event_tFieldCaretUpdate
+
+    private void botonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonActionPerformed
+        tArea.setText(tField.getText());
+        tField.setText("");
+    }//GEN-LAST:event_botonActionPerformed
+
+    private void tBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tBotonActionPerformed
+        if (negro) {
+            tArea.setForeground(Color.blue);
+            tArea.setBackground(Color.white);
+            negro = false;
+        } else {
+            tArea.setForeground(Color.white);
+            tArea.setBackground(Color.black);
+            negro = true;
+        }
+    }//GEN-LAST:event_tBotonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -102,8 +172,10 @@ public class E138 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton boton;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextArea tArea;
+    private javax.swing.JToggleButton tBoton;
+    private javax.swing.JTextField tField;
     // End of variables declaration//GEN-END:variables
 }
