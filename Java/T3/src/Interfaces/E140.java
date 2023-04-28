@@ -27,21 +27,134 @@ public class E140 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        texto = new javax.swing.JLabel();
+        field = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        lista1 = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
+        lista2 = new javax.swing.JComboBox<>();
+        intercambiar = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        texto.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        texto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        texto.setText("1.1 $");
+
+        field.setText("1.00");
+        field.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                fieldCaretUpdate(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel1.setText("Importe");
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel2.setText("De:");
+
+        lista1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Euros (€)", "Dolares ($)" }));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel3.setText("a");
+
+        lista2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Euros (€)", "Dolares ($)" }));
+        lista2.setSelectedIndex(1);
+
+        intercambiar.setIcon(new javax.swing.ImageIcon("C:\\Users\\usuario\\Downloads\\intercambio.png")); // NOI18N
+        intercambiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                intercambiarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(texto, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 87, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(field, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(4, 4, 4)
+                                .addComponent(lista1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(intercambiar, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lista2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lista1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(intercambiar, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lista2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(texto, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(162, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void fieldCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_fieldCaretUpdate
+        this.calcular();
+    }//GEN-LAST:event_fieldCaretUpdate
+
+    private void intercambiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_intercambiarActionPerformed
+        if (lista1.getSelectedItem().equals("Euros") && lista2.getSelectedItem().equals("Dolares")) {
+            String copia = lista1.getSelectedItem().toString();
+            lista1.setSelectedItem(lista2.getSelectedItem());
+            lista2.setSelectedItem(copia);
+        } else if (lista1.getSelectedItem().equals("Dolares") && lista2.getSelectedItem().equals("Euros")) {
+            String copia = lista1.getSelectedItem().toString();
+            lista1.setSelectedItem(lista2.getSelectedItem());
+            lista2.setSelectedItem(copia);
+        }
+        this.calcular();
+    }//GEN-LAST:event_intercambiarActionPerformed
+
+    public void calcular() {
+        if (!field.getText().isBlank()) {
+            String t;
+            double num = Double.parseDouble(field.getText());
+            if (lista1.getSelectedItem().equals("Euros") && lista2.getSelectedItem().equals("Dolares")) {
+                t = Double.toString(num * 1.10);
+            } else if (lista1.getSelectedItem().equals("Dolares") && lista2.getSelectedItem().equals("Euros")) {
+                t = Double.toString(num * 0.93);
+            } else {
+                t = Double.toString(num);
+            }
+            texto.setText(t + " " + lista2.getSelectedItem().toString().substring(lista2.getSelectedItem().toString().lastIndexOf("(") + 1).replace(")", ""));
+        }
+    }
 
     /**
      * @param args the command line arguments
@@ -79,5 +192,13 @@ public class E140 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField field;
+    private javax.swing.JButton intercambiar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JComboBox<String> lista1;
+    private javax.swing.JComboBox<String> lista2;
+    private javax.swing.JLabel texto;
     // End of variables declaration//GEN-END:variables
 }
