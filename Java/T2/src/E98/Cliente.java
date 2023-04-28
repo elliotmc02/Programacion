@@ -20,13 +20,13 @@ public abstract class Cliente {
         return cantidad;
     }
     
-    public Articulo realizarCompra() {
-        
-    }
+    /*    public Articulo realizarCompra() {
     
-    public String mostrarCompras() {
-        
-    }
+    }*/
+    
+    /*    public String mostrarCompras() {
+    
+    }*/
     
     @Override
     public String toString() {
