@@ -14,8 +14,13 @@ public class E140 extends javax.swing.JFrame {
     /**
      * Creates new form E140
      */
+    String l1;
+    String l2;
+
     public E140() {
         initComponents();
+        setResizable(false);
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -56,14 +61,24 @@ public class E140 extends javax.swing.JFrame {
         jLabel2.setText("De:");
 
         lista1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Euros (€)", "Dolares ($)" }));
+        lista1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lista1ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("a");
 
         lista2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Euros (€)", "Dolares ($)" }));
         lista2.setSelectedIndex(1);
+        lista2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lista2ActionPerformed(evt);
+            }
+        });
 
-        intercambiar.setIcon(new javax.swing.ImageIcon("C:\\Users\\usuario\\Downloads\\intercambio.png")); // NOI18N
+        intercambiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaces/icono.png"))); // NOI18N
         intercambiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 intercambiarActionPerformed(evt);
@@ -77,29 +92,28 @@ public class E140 extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(texto, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 87, Short.MAX_VALUE))
+                    .addComponent(texto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(field, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(4, 4, 4)
-                                .addComponent(lista1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(intercambiar, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(field, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lista1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(intercambiar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lista2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(lista2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -118,22 +132,25 @@ public class E140 extends javax.swing.JFrame {
                     .addComponent(lista2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(texto, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(162, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void fieldCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_fieldCaretUpdate
+
         this.calcular();
     }//GEN-LAST:event_fieldCaretUpdate
 
     private void intercambiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_intercambiarActionPerformed
-        if (lista1.getSelectedItem().equals("Euros") && lista2.getSelectedItem().equals("Dolares")) {
+        l1 = lista1.getSelectedItem().toString();
+        l2 = lista2.getSelectedItem().toString();
+        if (l1.toLowerCase().startsWith("eur") && l2.toLowerCase().startsWith("dol")) {
             String copia = lista1.getSelectedItem().toString();
             lista1.setSelectedItem(lista2.getSelectedItem());
             lista2.setSelectedItem(copia);
-        } else if (lista1.getSelectedItem().equals("Dolares") && lista2.getSelectedItem().equals("Euros")) {
+        } else if (l1.toLowerCase().startsWith("dol") && l2.toLowerCase().startsWith("eur")) {
             String copia = lista1.getSelectedItem().toString();
             lista1.setSelectedItem(lista2.getSelectedItem());
             lista2.setSelectedItem(copia);
@@ -141,18 +158,32 @@ public class E140 extends javax.swing.JFrame {
         this.calcular();
     }//GEN-LAST:event_intercambiarActionPerformed
 
+    private void lista1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lista1ActionPerformed
+        this.calcular();
+    }//GEN-LAST:event_lista1ActionPerformed
+
+    private void lista2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lista2ActionPerformed
+        this.calcular();
+    }//GEN-LAST:event_lista2ActionPerformed
+
     public void calcular() {
-        if (!field.getText().isBlank()) {
-            String t;
-            double num = Double.parseDouble(field.getText());
-            if (lista1.getSelectedItem().equals("Euros") && lista2.getSelectedItem().equals("Dolares")) {
-                t = Double.toString(num * 1.10);
-            } else if (lista1.getSelectedItem().equals("Dolares") && lista2.getSelectedItem().equals("Euros")) {
-                t = Double.toString(num * 0.93);
-            } else {
-                t = Double.toString(num);
+        try {
+            if (!field.getText().isBlank()) {
+                String t;
+                l1 = lista1.getSelectedItem().toString();
+                l2 = lista2.getSelectedItem().toString();
+                double num = Double.parseDouble(field.getText());
+                if (l1.toLowerCase().startsWith("eur") && l2.toLowerCase().startsWith("dol")) {
+                    t = String.format("%.2f", num * 1.10).replaceAll(",", ".");
+                } else if (l1.toLowerCase().startsWith("dol") && l2.toLowerCase().startsWith("eur")) {
+                    t = String.format("%.2f", num * 0.93).replaceAll(",", ".");
+                } else {
+                    t = String.format("%.2f", num).replaceAll(",", ".");
+                }
+                texto.setText(t + " " + l2.substring(l2.indexOf("(") + 1, l2.lastIndexOf(")")));
             }
-            texto.setText(t + " " + lista2.getSelectedItem().toString().substring(lista2.getSelectedItem().toString().lastIndexOf("(") + 1).replace(")", ""));
+        } catch (NumberFormatException e) {
+            texto.setText("Introduzca numeros");
         }
     }
 
