@@ -1,4 +1,4 @@
-package Ficheros.Concesionario;
+package Colecciones.Concesionario;
 
 import java.util.HashMap;
 
@@ -22,27 +22,26 @@ public class Concesionario {
         if (this.coches.containsKey(matricula)) {
             this.coches.remove(matricula);
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
     public boolean marcarKM0(String matricula) {
         if (this.coches.containsKey(matricula) && (!this.coches.get(matricula).isKm0())) {
             this.coches.get(matricula).setKm0(true);
             return true;
-        } else {
-            return false;
         }
+        return false;
+
     }
 
     public boolean desmarcarKM0(String matricula) {
         if (this.coches.containsKey(matricula) && (this.coches.get(matricula).isKm0())) {
             this.coches.get(matricula).setKm0(false);
             return true;
-        } else {
-            return false;
         }
+        return false;
+
     }
 
     public String mostrarKm0() {

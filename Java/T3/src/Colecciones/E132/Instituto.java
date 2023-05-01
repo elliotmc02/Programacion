@@ -70,7 +70,7 @@ public class Instituto {
                     contador++;
                 }
             }
-            str += ciudades + ": " + contador + (contador != 1 ? " alumnos." : " alumno.") + "\n";
+            str += ciudades + ": " + contador + (contador != 1 ? " alumnos." : " alumno.") + System.lineSeparator();
             contador = 0;
         }
         return str;

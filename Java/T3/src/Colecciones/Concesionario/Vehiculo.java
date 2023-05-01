@@ -1,4 +1,4 @@
-package Ficheros.Concesionario;
+package Colecciones.Concesionario;
 
 import java.util.HashSet;
 

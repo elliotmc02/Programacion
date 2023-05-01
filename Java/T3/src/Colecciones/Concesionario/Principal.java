@@ -1,4 +1,4 @@
-package Ficheros.Concesionario;
+package Colecciones.Concesionario;
 
 import java.util.Scanner;
 
@@ -19,7 +19,7 @@ public class Principal {
 
     public static void main(String[] args) throws InterruptedException {
 
-        String RUTA = "src/Ficheros/Concesionario/stock.dat";
+        String RUTA = "src/Colecciones/Concesionario/stock.dat";
 
         Scanner sc = new Scanner(System.in);
 
