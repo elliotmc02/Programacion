@@ -4,6 +4,8 @@
  */
 package Interfaces;
 
+import javax.print.attribute.standard.NumberOfInterveningJobs;
+
 /**
  *
  * @author Elliot
@@ -13,8 +15,18 @@ public class E145 extends javax.swing.JFrame {
     /**
      * Creates new form E145
      */
+    boolean esPar;
+
     public E145() {
         initComponents();
+
+        mainFrame.setResizable(false);
+        resultDialog.setResizable(false);
+        setResizable(false);
+        setLocationRelativeTo(null);
+        mainFrame.setLocationRelativeTo(null);
+        resultDialog.setLocationRelativeTo(null);
+
     }
 
     /**
@@ -26,46 +38,221 @@ public class E145 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDialog1 = new javax.swing.JDialog();
-        jFrame1 = new javax.swing.JFrame();
+        resultDialog = new javax.swing.JDialog();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jButton1 = new javax.swing.JButton();
+        mainFrame = new javax.swing.JFrame();
+        jugadorField = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        aviso = new javax.swing.JLabel();
+        botonNones = new javax.swing.JButton();
+        botonPares = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        salir = new javax.swing.JButton();
 
-        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
-        jDialog1.getContentPane().setLayout(jDialog1Layout);
-        jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        resultDialog.setUndecorated(true);
+        resultDialog.setSize(new java.awt.Dimension(400, 195));
+
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        jScrollPane1.setFocusable(false);
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jTextArea1.setRows(5);
+        jTextArea1.setText("Numero del jugador:\nNumero de la maquina:\nLa maquina ha ganado");
+        jTextArea1.setFocusable(false);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jButton1.setText("Volver");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout resultDialogLayout = new javax.swing.GroupLayout(resultDialog.getContentPane());
+        resultDialog.getContentPane().setLayout(resultDialogLayout);
+        resultDialogLayout.setHorizontalGroup(
+            resultDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, resultDialogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(resultDialogLayout.createSequentialGroup()
+                .addGap(73, 73, 73)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        resultDialogLayout.setVerticalGroup(
+            resultDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(resultDialogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
         );
 
-        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
-        jFrame1.getContentPane().setLayout(jFrame1Layout);
-        jFrame1Layout.setHorizontalGroup(
-            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        mainFrame.setUndecorated(true);
+        mainFrame.setSize(new java.awt.Dimension(250, 120));
+
+        jugadorField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jugadorFieldActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setText("Elige del 1 al 5:");
+
+        aviso.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        aviso.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        javax.swing.GroupLayout mainFrameLayout = new javax.swing.GroupLayout(mainFrame.getContentPane());
+        mainFrame.getContentPane().setLayout(mainFrameLayout);
+        mainFrameLayout.setHorizontalGroup(
+            mainFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainFrameLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(mainFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(aviso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(mainFrameLayout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(jugadorField, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)))
+                .addGap(17, 17, 17))
         );
-        jFrame1Layout.setVerticalGroup(
-            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        mainFrameLayout.setVerticalGroup(
+            mainFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mainFrameLayout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addGroup(mainFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jugadorField, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(aviso, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+
+        botonNones.setText("Nones");
+        botonNones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonNonesActionPerformed(evt);
+            }
+        });
+
+        botonPares.setText("Pares");
+        botonPares.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonParesActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Elija pares o nones");
+
+        salir.setText("Salir");
+        salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(botonPares, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27)
+                                .addComponent(botonNones, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(114, 114, 114)
+                        .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonNones, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonPares, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botonParesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonParesActionPerformed
+        esPar = true;
+        ocultarVentanaInicio();
+    }//GEN-LAST:event_botonParesActionPerformed
+
+    private void botonNonesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonNonesActionPerformed
+        esPar = false;
+        ocultarVentanaInicio();
+    }//GEN-LAST:event_botonNonesActionPerformed
+
+    private void jugadorFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jugadorFieldActionPerformed
+        if (!jugadorField.getText().isBlank()) {
+            try {
+                int numJugador = Integer.parseInt(jugadorField.getText());
+                if (numJugador < 1 || numJugador > 5) {
+                    aviso.setText("Debe ser un numero entre 1 y 5.");
+                    return;
+                }
+                int numMaquina = (int) (Math.random() * 5 + 1);
+                boolean numPar = (numJugador + numMaquina) % 2 == 0;
+                String ganador;
+                ganador = ((esPar && numPar) || (!esPar && !numPar) ? "Ha ganado el jugador" : "Ha ganado la maquina");
+                mostrarGanador(numJugador, numMaquina, ganador);
+
+            } catch (NumberFormatException e) {
+                aviso.setText("Introduzca un numero entero.");
+            }
+        }
+    }//GEN-LAST:event_jugadorFieldActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        resultDialog.dispose();
+        setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_salirActionPerformed
+
+    private void ocultarVentanaInicio() {
+        setVisible(false);
+        mainFrame.setVisible(true);
+    }
+
+    private void mostrarGanador(int numJugador, int numMaquina, String ganador) {
+        resultDialog.setVisible(true);
+        mainFrame.setVisible(false);
+        aviso.setText("");
+        jugadorField.setText("");
+        jTextArea1.setText("Numero del jugador: " + numJugador + System.lineSeparator()
+                + "Numero de la maquina: " + numMaquina + System.lineSeparator()
+                + ganador);
+    }
 
     /**
      * @param args the command line arguments
@@ -103,7 +290,17 @@ public class E145 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDialog jDialog1;
-    private javax.swing.JFrame jFrame1;
+    private javax.swing.JLabel aviso;
+    private javax.swing.JButton botonNones;
+    private javax.swing.JButton botonPares;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField jugadorField;
+    private javax.swing.JFrame mainFrame;
+    private javax.swing.JDialog resultDialog;
+    private javax.swing.JButton salir;
     // End of variables declaration//GEN-END:variables
 }

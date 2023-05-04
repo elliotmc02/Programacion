@@ -1,7 +1,5 @@
 package Colecciones.E132;
 
-import java.util.Scanner;
-
 public class E132 {
 
     public static void main(String[] args) {
