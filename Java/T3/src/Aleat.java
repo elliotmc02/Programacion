@@ -5,7 +5,7 @@ public class Aleat {
 
         String[] a = {"Elliot", "Diego"};
 
-        System.out.println(a[(int) (Math.random() * 2)]);
+        System.out.println(a[(int) (Math.random() * a.length)]);
 
     }
 
