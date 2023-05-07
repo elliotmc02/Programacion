@@ -4,7 +4,6 @@
  */
 package Interfaces;
 
-import javax.print.attribute.standard.NumberOfInterveningJobs;
 
 /**
  *

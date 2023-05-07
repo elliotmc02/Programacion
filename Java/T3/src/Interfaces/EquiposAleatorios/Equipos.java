@@ -182,7 +182,7 @@ public class Equipos extends javax.swing.JFrame {
         nJugadores.setText("");
         nJugadores.requestFocus();
     }//GEN-LAST:event_inicioActionPerformed
-
+    
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_salirActionPerformed
