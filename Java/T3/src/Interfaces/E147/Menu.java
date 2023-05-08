@@ -16,6 +16,7 @@ public class Menu extends javax.swing.JFrame {
      */
     private Cartas JuegoMemoria;
     private ParesNones JuegoParesNones;
+    private Login login;
 
     public Menu() {
         initComponents();
@@ -43,9 +44,10 @@ public class Menu extends javax.swing.JFrame {
         paresNones = new javax.swing.JButton();
         cartas = new javax.swing.JButton();
         estadisticas = new javax.swing.JButton();
-        salir = new javax.swing.JButton();
+        cerrarSesion = new javax.swing.JButton();
         elegirJuego = new javax.swing.JButton();
         mensajeBienvenida = new javax.swing.JLabel();
+        salir1 = new javax.swing.JButton();
 
         ventanaEstadisticas.setUndecorated(true);
         ventanaEstadisticas.setResizable(false);
@@ -159,10 +161,10 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        salir.setText("Salir");
-        salir.addActionListener(new java.awt.event.ActionListener() {
+        cerrarSesion.setText("Cerrar Sesion");
+        cerrarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                salirActionPerformed(evt);
+                cerrarSesionActionPerformed(evt);
             }
         });
 
@@ -177,6 +179,13 @@ public class Menu extends javax.swing.JFrame {
         mensajeBienvenida.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         mensajeBienvenida.setText("Bienvenido, usuario");
 
+        salir1.setText("Salir");
+        salir1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salir1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -186,13 +195,15 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(mensajeBienvenida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(185, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(elegirJuego, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(salir, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                        .addComponent(estadisticas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(175, 175, 175))
+                .addContainerGap(147, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(cerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(salir1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(estadisticas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(elegirJuego, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(141, 141, 141))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -203,17 +214,23 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(elegirJuego, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(estadisticas, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addGap(4, 4, 4)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(salir1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_salirActionPerformed
+    private void cerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarSesionActionPerformed
+        if (login == null) {
+            login = new Login();
+            this.dispose();
+            login.setVisible(true);
+        }
+    }//GEN-LAST:event_cerrarSesionActionPerformed
 
     private void volverESActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverESActionPerformed
         this.ventanaEstadisticas.setVisible(false);
@@ -252,43 +269,17 @@ public class Menu extends javax.swing.JFrame {
 
     }//GEN-LAST:event_estadisticasActionPerformed
 
+    private void salir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salir1ActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_salir1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Menu().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cartas;
+    private javax.swing.JButton cerrarSesion;
     private javax.swing.JButton elegirJuego;
     private javax.swing.JButton estadisticas;
     private javax.swing.JLabel labelDerrotasPN;
@@ -296,7 +287,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel labelVictoriasPN;
     private javax.swing.JLabel mensajeBienvenida;
     private javax.swing.JButton paresNones;
-    private javax.swing.JButton salir;
+    private javax.swing.JButton salir1;
     private javax.swing.JFrame ventanaElegirJuego;
     private javax.swing.JFrame ventanaEstadisticas;
     private javax.swing.JButton volverEJ;

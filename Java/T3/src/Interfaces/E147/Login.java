@@ -9,13 +9,59 @@ package Interfaces.E147;
  *
  * @author Elliot
  */
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+
+import java.util.HashMap;
+import java.util.ArrayList;
+
 public class Login extends javax.swing.JFrame {
 
     /**
      * Creates new form Login
      */
+    private HashMap<String, Usuario> datos;
+
     public Login() {
         initComponents();
+        setLocationRelativeTo(null);
+        leerDatos();
+    }
+
+    private void leerDatos() {
+        String RUTA_DATOS = "/Interfaces/E147/ficheros/datos.txt";
+        try ( BufferedReader br = new BufferedReader(new FileReader(RUTA_DATOS))) {
+            String linea;
+            do {
+                linea = br.readLine();
+                if (linea != null) {
+                    String nombre = linea.split(":")[0];
+                    String password = linea.split(":")[1];
+                    ArrayList<Integer> stats = new ArrayList<>();
+                    stats.add(Integer.parseInt(linea.split(":")[2]));
+                    stats.add(Integer.parseInt(linea.split(":")[3]));
+                    stats.add(Integer.parseInt(linea.split(":")[4]));
+                    this.datos.put(nombre, new Usuario(nombre, password, stats));
+                }
+            } while (linea != null);
+        } catch (java.io.FileNotFoundException e) {
+            System.out.println("No se encontró el fichero");
+        } catch (java.io.IOException e) {
+            System.out.println("Error al leer fichero");
+        }
+    }
+
+    private void escribirDatos() {
+        String RUTA_DATOS = "/Interfaces/E147/ficheros/datos.txt";
+        try ( BufferedWriter bw = new BufferedWriter(new FileWriter(RUTA_DATOS))) {
+            for (Usuario user : this.datos.values()) {
+                bw.append(user.nombre + ":" + user.password + ":" + user.stats.toString().replaceAll("[\\[\\]]", "").replace(", ", ":"));
+            }
+        } catch (java.io.IOException e) {
+            System.out.println("Error al escribir fichero");
+        }
     }
 
     /**
@@ -27,21 +73,83 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        textoUsuario = new javax.swing.JTextField();
+        textoPassword = new javax.swing.JPasswordField();
+        iniciarSesion = new javax.swing.JButton();
+        crearCuenta = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+
+        iniciarSesion.setText("Iniciar sesion");
+        iniciarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                iniciarSesionActionPerformed(evt);
+            }
+        });
+
+        crearCuenta.setText("Crear cuenta");
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setText("Iniciar sesion");
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel2.setText("Contraseña");
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel3.setText("Nombre de usuario");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(textoUsuario)
+                    .addComponent(textoPassword)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(iniciarSesion)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(crearCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 183, Short.MAX_VALUE))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(textoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(textoPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(crearCuenta)
+                    .addComponent(iniciarSesion))
+                .addContainerGap(101, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void iniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarSesionActionPerformed
+        this.dispose();
+        Menu menu = new Menu();
+        menu.setVisible(true);
+
+    }//GEN-LAST:event_iniciarSesionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +187,12 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton crearCuenta;
+    private javax.swing.JButton iniciarSesion;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPasswordField textoPassword;
+    private javax.swing.JTextField textoUsuario;
     // End of variables declaration//GEN-END:variables
 }

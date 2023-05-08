@@ -34,6 +34,7 @@ public class Cartas extends javax.swing.JFrame {
     private Color colores[];
     private boolean esperar;
     private int cartasEncontradas;
+    private Menu menu;
 
     public Cartas() {
         initComponents();
@@ -109,10 +110,6 @@ public class Cartas extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(800, 550));
 
         jPanel1.setLayout(new java.awt.GridLayout(2, 0, 20, 20));
-
-        jButton1.setMaximumSize(new java.awt.Dimension(72, 6));
-        jButton1.setMinimumSize(new java.awt.Dimension(72, 6));
-        jButton1.setPreferredSize(new java.awt.Dimension(72, 6));
         jPanel1.add(jButton1);
         jPanel1.add(jButton2);
         jPanel1.add(jButton3);
@@ -187,6 +184,11 @@ public class Cartas extends javax.swing.JFrame {
             if (this.cartasEncontradas == this.jButtons.length) {
                 this.setVisible(false);
                 javax.swing.JOptionPane.showMessageDialog(this, "Enhorabuena, has ganado.");
+                if (this.menu == null) {
+                    this.menu = new Menu();
+                    this.menu.setVisible(true);
+                    dispose();
+                }
             }
 
         }
