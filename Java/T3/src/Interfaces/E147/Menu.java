@@ -25,6 +25,10 @@ public class Menu extends javax.swing.JFrame {
         this.ventanaEstadisticas.setLocationRelativeTo(null);
     }
 
+    public void cambiarTexto(String nombre) {
+        mensajeBienvenida.setText("Bienvenido rompetangas " + nombre);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -229,6 +233,7 @@ public class Menu extends javax.swing.JFrame {
             login = new Login();
             this.dispose();
             login.setVisible(true);
+
         }
     }//GEN-LAST:event_cerrarSesionActionPerformed
 

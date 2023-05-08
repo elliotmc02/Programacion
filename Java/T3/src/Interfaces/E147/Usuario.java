@@ -4,13 +4,28 @@ import java.util.ArrayList;
 
 public class Usuario {
 
-    String nombre;
-    String password;
-    ArrayList<Integer> stats;
+    private String password;
+    private ArrayList<Integer> stats;
 
-    public Usuario(String nombre, String password, ArrayList stats) {
-        this.nombre = nombre;
+    public Usuario(String password, ArrayList<Integer> stats) {
         this.password = password;
         this.stats = stats;
     }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public ArrayList<Integer> getStats() {
+        return stats;
+    }
+
+    public void setStats(ArrayList<Integer> stats) {
+        this.stats = stats;
+    }
+
 }

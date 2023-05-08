@@ -23,27 +23,32 @@ public class Login extends javax.swing.JFrame {
      * Creates new form Login
      */
     private HashMap<String, Usuario> datos;
+    private Menu menu;
+    private String nombre;
 
     public Login() {
         initComponents();
         setLocationRelativeTo(null);
+        ventanaCrearCuenta.setLocationRelativeTo(null);
+        datos = new HashMap<>();
         leerDatos();
+        error.setVisible(false);
     }
 
     private void leerDatos() {
-        String RUTA_DATOS = "/Interfaces/E147/ficheros/datos.txt";
+        String RUTA_DATOS = "src/Interfaces/E147/ficheros/datos.txt";
         try ( BufferedReader br = new BufferedReader(new FileReader(RUTA_DATOS))) {
             String linea;
             do {
                 linea = br.readLine();
                 if (linea != null) {
-                    String nombre = linea.split(":")[0];
+                    nombre = linea.split(":")[0];
                     String password = linea.split(":")[1];
                     ArrayList<Integer> stats = new ArrayList<>();
                     stats.add(Integer.parseInt(linea.split(":")[2]));
                     stats.add(Integer.parseInt(linea.split(":")[3]));
                     stats.add(Integer.parseInt(linea.split(":")[4]));
-                    this.datos.put(nombre, new Usuario(nombre, password, stats));
+                    this.datos.put(nombre, new Usuario(password, stats));
                 }
             } while (linea != null);
         } catch (java.io.FileNotFoundException e) {
@@ -54,10 +59,10 @@ public class Login extends javax.swing.JFrame {
     }
 
     private void escribirDatos() {
-        String RUTA_DATOS = "/Interfaces/E147/ficheros/datos.txt";
+        String RUTA_DATOS = "src/Interfaces/E147/ficheros/datos.txt";
         try ( BufferedWriter bw = new BufferedWriter(new FileWriter(RUTA_DATOS))) {
-            for (Usuario user : this.datos.values()) {
-                bw.append(user.nombre + ":" + user.password + ":" + user.stats.toString().replaceAll("[\\[\\]]", "").replace(", ", ":"));
+            for (String user : this.datos.keySet()) {
+                bw.append(user + ":" + this.datos.get(user).getPassword() + ":" + this.datos.get(user).getStats().toString().replaceAll("[\\[\\]]", "").replace(", ", ":") + System.lineSeparator());
             }
         } catch (java.io.IOException e) {
             System.out.println("Error al escribir fichero");
@@ -73,6 +78,17 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        ventanaCrearCuenta = new javax.swing.JFrame();
+        crearNombre = new javax.swing.JTextField();
+        crearPassword = new javax.swing.JPasswordField();
+        crearCuentaConfirmar = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        confirmarPassword = new javax.swing.JPasswordField();
+        jLabel7 = new javax.swing.JLabel();
+        errorCrear = new javax.swing.JLabel();
+        cuentaYaRegistrada = new javax.swing.JButton();
         textoUsuario = new javax.swing.JTextField();
         textoPassword = new javax.swing.JPasswordField();
         iniciarSesion = new javax.swing.JButton();
@@ -80,6 +96,85 @@ public class Login extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        error = new javax.swing.JLabel();
+
+        ventanaCrearCuenta.setResizable(false);
+        ventanaCrearCuenta.setSize(new java.awt.Dimension(400, 300));
+
+        crearCuentaConfirmar.setText("Crear cuenta");
+        crearCuentaConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                crearCuentaConfirmarActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel4.setText("Crear Cuenta");
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel5.setText("Contraseña");
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel6.setText("Nombre de usuario");
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel7.setText("Confirmar Contraseña");
+
+        errorCrear.setForeground(new java.awt.Color(255, 51, 51));
+
+        cuentaYaRegistrada.setText("¿Ya tienes una cuenta?");
+        cuentaYaRegistrada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cuentaYaRegistradaActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout ventanaCrearCuentaLayout = new javax.swing.GroupLayout(ventanaCrearCuenta.getContentPane());
+        ventanaCrearCuenta.getContentPane().setLayout(ventanaCrearCuentaLayout);
+        ventanaCrearCuentaLayout.setHorizontalGroup(
+            ventanaCrearCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ventanaCrearCuentaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(ventanaCrearCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(confirmarPassword)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
+                    .addComponent(crearNombre)
+                    .addComponent(crearPassword)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(errorCrear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(ventanaCrearCuentaLayout.createSequentialGroup()
+                        .addComponent(crearCuentaConfirmar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cuentaYaRegistrada)))
+                .addContainerGap())
+        );
+        ventanaCrearCuentaLayout.setVerticalGroup(
+            ventanaCrearCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaCrearCuentaLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(crearNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(crearPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(confirmarPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(errorCrear)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(ventanaCrearCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(crearCuentaConfirmar)
+                    .addComponent(cuentaYaRegistrada))
+                .addContainerGap(80, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -92,6 +187,11 @@ public class Login extends javax.swing.JFrame {
         });
 
         crearCuenta.setText("Crear cuenta");
+        crearCuenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                crearCuentaActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Iniciar sesion");
@@ -102,6 +202,9 @@ public class Login extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("Nombre de usuario");
 
+        error.setForeground(new java.awt.Color(255, 51, 51));
+        error.setText("Usuario o contraseña incorrectos.");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -109,16 +212,17 @@ public class Login extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
                     .addComponent(textoUsuario)
                     .addComponent(textoPassword)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(iniciarSesion)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(crearCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 183, Short.MAX_VALUE))
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(error, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -135,21 +239,66 @@ public class Login extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(textoPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(error)
+                .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(crearCuenta)
-                    .addComponent(iniciarSesion))
-                .addContainerGap(101, Short.MAX_VALUE))
+                    .addComponent(iniciarSesion)
+                    .addComponent(crearCuenta))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void iniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarSesionActionPerformed
-        this.dispose();
-        Menu menu = new Menu();
-        menu.setVisible(true);
 
+        if (this.datos.containsKey(textoUsuario.getText()) && this.datos.get(textoUsuario.getText()).getPassword().equals(String.valueOf(textoPassword.getPassword()))) {
+            if (menu == null) {
+                nombre = textoUsuario.getText();
+                menu = new Menu();
+                menu.cambiarTexto(nombre);
+                menu.setVisible(true);
+                this.dispose();
+            }
+        } else {
+            error.setVisible(true);
+            textoUsuario.setText("");
+            textoPassword.setText("");
+        }
     }//GEN-LAST:event_iniciarSesionActionPerformed
+
+    private ArrayList<Integer> crearStats() {
+        ArrayList<Integer> newStats = new ArrayList<>();
+        newStats.add(0);
+        newStats.add(0);
+        newStats.add(0);
+        return newStats;
+    }
+
+    private void crearCuentaConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearCuentaConfirmarActionPerformed
+        if (!this.datos.containsKey(crearCuenta.getText())) {
+            if (!crearNombre.getText().isBlank() && !crearNombre.getText().contains(" ") && String.valueOf(crearPassword.getPassword()).equals(String.valueOf(confirmarPassword.getPassword()))) {
+                this.datos.put(crearNombre.getText(), new Usuario(String.valueOf(confirmarPassword.getPassword()), crearStats()));
+                escribirDatos();
+                ventanaCrearCuenta.setVisible(false);
+                this.setVisible(true);
+            } else {
+                errorCrear.setText("Formato incorrecto");
+            }
+        } else {
+            errorCrear.setText("Ya existe una cuenta");
+        }
+    }//GEN-LAST:event_crearCuentaConfirmarActionPerformed
+
+    private void cuentaYaRegistradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cuentaYaRegistradaActionPerformed
+        this.setVisible(true);
+        ventanaCrearCuenta.setVisible(false);
+    }//GEN-LAST:event_cuentaYaRegistradaActionPerformed
+
+    private void crearCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearCuentaActionPerformed
+        ventanaCrearCuenta.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_crearCuentaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -187,12 +336,24 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPasswordField confirmarPassword;
     private javax.swing.JButton crearCuenta;
+    private javax.swing.JButton crearCuentaConfirmar;
+    private javax.swing.JTextField crearNombre;
+    private javax.swing.JPasswordField crearPassword;
+    private javax.swing.JButton cuentaYaRegistrada;
+    private javax.swing.JLabel error;
+    private javax.swing.JLabel errorCrear;
     private javax.swing.JButton iniciarSesion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPasswordField textoPassword;
     private javax.swing.JTextField textoUsuario;
+    private javax.swing.JFrame ventanaCrearCuenta;
     // End of variables declaration//GEN-END:variables
 }
