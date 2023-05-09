@@ -15,17 +15,22 @@ public class ParesNones extends javax.swing.JFrame {
      */
     private boolean esPar;
     private Menu menu;
+    int victorias;
+    int derrotas;
 
     public ParesNones() {
         initComponents();
-
         this.mainFrame.setResizable(false);
         this.resultDialog.setResizable(false);
         this.setResizable(false);
         this.setLocationRelativeTo(null);
         this.mainFrame.setLocationRelativeTo(null);
         this.resultDialog.setLocationRelativeTo(null);
+    }
 
+    public void setVictoriasDerrotas(int v, int d) {
+        victorias = v;
+        derrotas = d;
     }
 
     /**
@@ -221,6 +226,11 @@ public class ParesNones extends javax.swing.JFrame {
                 boolean numPar = (numJugador + numMaquina) % 2 == 0;
                 String ganador;
                 ganador = ((this.esPar && numPar) || (!this.esPar && !numPar) ? "Ha ganado el jugador" : "Ha ganado la maquina");
+                if (ganador.equalsIgnoreCase("ha ganado el jugador")) {
+                    victorias++;
+                } else {
+                    derrotas++;
+                }
                 this.mostrarGanador(numJugador, numMaquina, ganador);
 
             } catch (NumberFormatException e) {
@@ -237,6 +247,8 @@ public class ParesNones extends javax.swing.JFrame {
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
         if (this.menu == null) {
             this.menu = new Menu();
+            this.menu.setVictoriasPN(victorias);
+            this.menu.setDerrotasPN(derrotas);
             this.menu.setVisible(true);
             this.dispose();
         }

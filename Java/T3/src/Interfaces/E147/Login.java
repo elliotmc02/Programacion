@@ -33,6 +33,8 @@ public class Login extends javax.swing.JFrame {
         datos = new HashMap<>();
         leerDatos();
         error.setVisible(false);
+        errorCrear.setVisible(false);
+
     }
 
     private void leerDatos() {
@@ -99,7 +101,11 @@ public class Login extends javax.swing.JFrame {
         error = new javax.swing.JLabel();
 
         ventanaCrearCuenta.setResizable(false);
-        ventanaCrearCuenta.setSize(new java.awt.Dimension(400, 300));
+        ventanaCrearCuenta.setSize(new java.awt.Dimension(410, 300));
+        ventanaCrearCuenta.setType(java.awt.Window.Type.POPUP);
+        ventanaCrearCuenta.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        ventanaCrearCuenta.getContentPane().add(crearNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 76, 388, -1));
+        ventanaCrearCuenta.getContentPane().add(crearPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 126, 388, -1));
 
         crearCuentaConfirmar.setText("Crear cuenta");
         crearCuentaConfirmar.addActionListener(new java.awt.event.ActionListener() {
@@ -107,20 +113,28 @@ public class Login extends javax.swing.JFrame {
                 crearCuentaConfirmarActionPerformed(evt);
             }
         });
+        ventanaCrearCuenta.getContentPane().add(crearCuentaConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 232, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setText("Crear Cuenta");
+        ventanaCrearCuenta.getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 21, 388, 27));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setText("Contraseña");
+        ventanaCrearCuenta.getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 104, 388, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setText("Nombre de usuario");
+        ventanaCrearCuenta.getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 54, 388, -1));
+        ventanaCrearCuenta.getContentPane().add(confirmarPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 176, 388, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setText("Confirmar Contraseña");
+        ventanaCrearCuenta.getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 154, 388, -1));
 
         errorCrear.setForeground(new java.awt.Color(255, 51, 51));
+        errorCrear.setText("Error");
+        ventanaCrearCuenta.getContentPane().add(errorCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 204, 388, -1));
 
         cuentaYaRegistrada.setText("¿Ya tienes una cuenta?");
         cuentaYaRegistrada.addActionListener(new java.awt.event.ActionListener() {
@@ -128,56 +142,13 @@ public class Login extends javax.swing.JFrame {
                 cuentaYaRegistradaActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout ventanaCrearCuentaLayout = new javax.swing.GroupLayout(ventanaCrearCuenta.getContentPane());
-        ventanaCrearCuenta.getContentPane().setLayout(ventanaCrearCuentaLayout);
-        ventanaCrearCuentaLayout.setHorizontalGroup(
-            ventanaCrearCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ventanaCrearCuentaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(ventanaCrearCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(confirmarPassword)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
-                    .addComponent(crearNombre)
-                    .addComponent(crearPassword)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(errorCrear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(ventanaCrearCuentaLayout.createSequentialGroup()
-                        .addComponent(crearCuentaConfirmar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cuentaYaRegistrada)))
-                .addContainerGap())
-        );
-        ventanaCrearCuentaLayout.setVerticalGroup(
-            ventanaCrearCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaCrearCuentaLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(crearNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(crearPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(confirmarPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(errorCrear)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(ventanaCrearCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(crearCuentaConfirmar)
-                    .addComponent(cuentaYaRegistrada))
-                .addContainerGap(80, Short.MAX_VALUE))
-        );
+        ventanaCrearCuenta.getContentPane().add(cuentaYaRegistrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 232, -1, -1));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(textoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 95, 388, -1));
+        getContentPane().add(textoPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 143, 388, -1));
 
         iniciarSesion.setText("Iniciar sesion");
         iniciarSesion.addActionListener(new java.awt.event.ActionListener() {
@@ -185,6 +156,7 @@ public class Login extends javax.swing.JFrame {
                 iniciarSesionActionPerformed(evt);
             }
         });
+        getContentPane().add(iniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 203, -1, -1));
 
         crearCuenta.setText("Crear cuenta");
         crearCuenta.addActionListener(new java.awt.event.ActionListener() {
@@ -192,60 +164,23 @@ public class Login extends javax.swing.JFrame {
                 crearCuentaActionPerformed(evt);
             }
         });
+        getContentPane().add(crearCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 203, 101, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Iniciar sesion");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 38, 388, 27));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setText("Contraseña");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 121, 388, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("Nombre de usuario");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 73, 388, -1));
 
         error.setForeground(new java.awt.Color(255, 51, 51));
         error.setText("Usuario o contraseña incorrectos.");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
-                    .addComponent(textoUsuario)
-                    .addComponent(textoPassword)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(iniciarSesion)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(crearCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(error, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(8, 8, 8)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(4, 4, 4)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textoPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(error)
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(iniciarSesion)
-                    .addComponent(crearCuenta))
-                .addContainerGap(75, Short.MAX_VALUE))
-        );
+        getContentPane().add(error, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 177, 388, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -256,6 +191,7 @@ public class Login extends javax.swing.JFrame {
             if (menu == null) {
                 nombre = textoUsuario.getText();
                 menu = new Menu();
+                menu.cambiarStats(this.datos.get(nombre).getStats().get(0), this.datos.get(nombre).getStats().get(1), this.datos.get(nombre).getStats().get(2));
                 menu.cambiarTexto(nombre);
                 menu.setVisible(true);
                 this.dispose();
@@ -277,15 +213,17 @@ public class Login extends javax.swing.JFrame {
 
     private void crearCuentaConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearCuentaConfirmarActionPerformed
         if (!this.datos.containsKey(crearCuenta.getText())) {
-            if (!crearNombre.getText().isBlank() && !crearNombre.getText().contains(" ") && String.valueOf(crearPassword.getPassword()).equals(String.valueOf(confirmarPassword.getPassword()))) {
+            if (!crearNombre.getText().isBlank() && !String.valueOf(crearPassword.getPassword()).isBlank() && !crearNombre.getText().contains(" ") && String.valueOf(crearPassword.getPassword()).equals(String.valueOf(confirmarPassword.getPassword()))) {
                 this.datos.put(crearNombre.getText(), new Usuario(String.valueOf(confirmarPassword.getPassword()), crearStats()));
                 escribirDatos();
                 ventanaCrearCuenta.setVisible(false);
                 this.setVisible(true);
             } else {
-                errorCrear.setText("Formato incorrecto");
+                errorCrear.setVisible(true);
+                errorCrear.setText("Datos incorrectos");
             }
         } else {
+            errorCrear.setVisible(true);
             errorCrear.setText("Ya existe una cuenta");
         }
     }//GEN-LAST:event_crearCuentaConfirmarActionPerformed

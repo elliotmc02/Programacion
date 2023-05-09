@@ -16,6 +16,8 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -31,10 +33,12 @@ public class Cartas extends javax.swing.JFrame {
     private String segundoID;
     private int cartasSeleccionadas;
     private ArrayList<JButton> seleccionados;
-    private Color colores[];
+    //private Color colores[];
+    private ImageIcon iconos[];
     private boolean esperar;
     private int cartasEncontradas;
     private Menu menu;
+    private int partidasJugadas;
 
     public Cartas() {
         initComponents();
@@ -45,7 +49,12 @@ public class Cartas extends javax.swing.JFrame {
         this.cartasSeleccionadas = 0;
         this.cartasEncontradas = 0;
         this.esperar = false;
-        this.colores = new Color[]{Color.BLUE, Color.GREEN, Color.MAGENTA, Color.RED};
+        //this.colores = new Color[]{Color.BLUE, Color.GREEN, Color.MAGENTA, Color.RED};
+        this.iconos = new ImageIcon[]{new ImageIcon("src/Interfaces/E147/fotos/1.png"), new ImageIcon("src/Interfaces/E147/fotos/2.png"), new ImageIcon("src/Interfaces/E147/fotos/3.png"), new ImageIcon("src/Interfaces/E147/fotos/4.png")};
+    }
+
+    public void setPJ(int num) {
+        partidasJugadas = num;
     }
 
     private void eventoBotones() {
@@ -144,12 +153,14 @@ public class Cartas extends javax.swing.JFrame {
             JButton boton = (JButton) evt.getSource();
             if (this.primerID == null) {
                 this.primerID = boton.getName();
-                boton.setBackground(colores[Integer.parseInt(this.primerID) - 1]);
+                //boton.setBackground(colores[Integer.parseInt(this.primerID) - 1]);
+                boton.setIcon(iconos[Integer.parseInt(this.primerID) - 1]);
                 this.seleccionados.add(boton);
                 this.cartasSeleccionadas++;
             } else if (!this.seleccionados.get(0).equals(boton)) {
                 this.segundoID = boton.getName();
-                boton.setBackground(colores[Integer.parseInt(this.segundoID) - 1]);
+                //boton.setBackground(colores[Integer.parseInt(this.segundoID) - 1]);
+                boton.setIcon(iconos[Integer.parseInt(this.segundoID) - 1]);
                 this.cartasSeleccionadas++;
             }
 
@@ -171,7 +182,8 @@ public class Cartas extends javax.swing.JFrame {
                     public void actionPerformed(ActionEvent e) {
                         esperar = false;
                         for (JButton botones : jButtons) {
-                            botones.setBackground(Color.WHITE);
+                            //botones.setBackground(Color.WHITE);
+                            botones.setIcon(null);
                         }
                     }
                 });
@@ -182,10 +194,12 @@ public class Cartas extends javax.swing.JFrame {
             }
 
             if (this.cartasEncontradas == this.jButtons.length) {
+                partidasJugadas++;
                 this.setVisible(false);
                 javax.swing.JOptionPane.showMessageDialog(this, "Enhorabuena, has ganado.");
                 if (this.menu == null) {
                     this.menu = new Menu();
+                    menu.setPartidasJugadasCartas(partidasJugadas);
                     this.menu.setVisible(true);
                     dispose();
                 }
@@ -197,7 +211,6 @@ public class Cartas extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
