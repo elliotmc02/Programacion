@@ -5,18 +5,14 @@
  */
 package Interfaces.E147;
 
-import java.awt.Color;
+//import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import java.util.ArrayList;
 import javax.swing.Timer;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
-import javax.swing.Icon;
+
 import javax.swing.ImageIcon;
 
 /**
@@ -56,7 +52,8 @@ public class Cartas extends javax.swing.JFrame {
     public void setPJ(int num) {
         partidasJugadas = num;
     }
-
+    // 147
+    // 147
     private void eventoBotones() {
         this.jButtons = new JButton[]{this.jButton1, this.jButton2, this.jButton3, this.jButton4, this.jButton5, this.jButton6, this.jButton7, this.jButton8};
         for (JButton button : this.jButtons) {
@@ -69,6 +66,8 @@ public class Cartas extends javax.swing.JFrame {
         }
     }
 
+    // 147
+    // 147
     private void crearGrupos() {
         ArrayList<JButton> grupos = new ArrayList<>();
         int nRandom;
@@ -92,6 +91,8 @@ public class Cartas extends javax.swing.JFrame {
             id++;
         }
     }
+    // 147
+    // 147
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -148,6 +149,9 @@ public class Cartas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // 147
+    // 147
+    
     private void ButtonActionPerformed(java.awt.event.ActionEvent evt) {
         if (!this.esperar) {
             JButton boton = (JButton) evt.getSource();
@@ -207,6 +211,8 @@ public class Cartas extends javax.swing.JFrame {
 
         }
     }
+    // 147
+    // 147
 
     /**
      * @param args the command line arguments

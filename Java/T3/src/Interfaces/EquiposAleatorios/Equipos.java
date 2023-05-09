@@ -149,7 +149,7 @@ public class Equipos extends javax.swing.JFrame {
             try {
                 int numJugadores = Integer.parseInt(nJugadores.getText());
                 if (numJugadores < MIN_JUGADORES || numJugadores > MAX_JUGADORES) {
-                    JOptionPane.showMessageDialog(this, (numJugadores > MAX_JUGADORES) ? "Ni Norberto tiene esa cantidad de contactos" : "Debe ser " + MIN_JUGADORES + " o más subnormal", "Error", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(this, (numJugadores > MAX_JUGADORES) ? "No tienes esa cantidad de contactos" : "Debe ser " + MIN_JUGADORES + " o más subnormal", "Error", JOptionPane.WARNING_MESSAGE);
                     return;
                 }
                 listaJugadores = new ArrayList<>();
