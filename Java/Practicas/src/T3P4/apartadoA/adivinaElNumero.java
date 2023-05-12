@@ -1,4 +1,4 @@
-package moyano_elliot.apartadoA;
+package T3P4.apartadoA;
 
 import java.awt.Color;
 import java.io.File;
@@ -23,7 +23,7 @@ public class adivinaElNumero extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         getContentPane().setBackground(Color.GRAY);
-        imagenLabel.setIcon(new ImageIcon("src/moyano_elliot/apartadoA/assets/foto.png"));
+        imagenLabel.setIcon(new ImageIcon("src/T3P4/apartadoA/assets/foto.png"));
     }
 
     @SuppressWarnings("unchecked")
@@ -240,7 +240,7 @@ public class adivinaElNumero extends javax.swing.JFrame {
 
     public void ReproducirSonido() {
         try {
-            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/moyano_elliot/apartadoA/assets/sonido.wav"));
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/T3P4/apartadoA/assets/sonido.wav"));
             Clip clip = AudioSystem.getClip();
             clip.open(audioInputStream);
             clip.start();

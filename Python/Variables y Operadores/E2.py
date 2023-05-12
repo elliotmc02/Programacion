@@ -15,6 +15,8 @@ print("La suma de", n1, "y", n2, "es:", n1 + n2)
 print("La resta de", n1, "y", n2, "es:", n1 - n2)
 print("La multiplicacion de", n1, "y", n2, "es:", n1 * n2)
 print("El cociente de", n1, "entre", n2, "da:", n1 / n2)
+# se puede usar math.pow o **, la segunda no habria que importar math
 print(n1, "elevado a", n2, "da:", math.pow(n1, n2))
+print(n1, "elevado a", n2, "da:", n1**n2)
 
 

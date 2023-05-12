@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package moyano_elliot.ApartadoB;
+package T3P4.ApartadoB;
 
 import java.io.File;
 import java.io.IOException;
@@ -26,7 +26,7 @@ public class Luces extends javax.swing.JFrame {
     /**
      * Creates new form Luces
      */
-    String URL_assets = "src/moyano_elliot/ApartadoB/assets/";
+    String URL_assets = "src/T3P4/ApartadoB/assets/";
     String encendido = URL_assets + "1.png";
     String apagado = URL_assets + "0.png";
     ArrayList<JButton> bombillas;
@@ -89,7 +89,7 @@ public class Luces extends javax.swing.JFrame {
 
     private void reproducirSonido() {
         try {
-            AudioInputStream audio = AudioSystem.getAudioInputStream(new File("src/moyano_elliot/ApartadoB/assets/sonido.wav").getAbsoluteFile());
+            AudioInputStream audio = AudioSystem.getAudioInputStream(new File("src/T3P4/ApartadoB/assets/sonido.wav").getAbsoluteFile());
             Clip clip = AudioSystem.getClip();
             clip.open(audio);
             clip.start();
