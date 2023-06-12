@@ -17,12 +17,17 @@ public class E144 extends javax.swing.JFrame {
     /**
      * Creates new form E144
      */
+    double num1;
+    double num2;
+    boolean operador;
+
     public E144() {
         initComponents();
         getContentPane().setBackground(Color.DARK_GRAY);
-
         eventosNumeros();
         eventosOperaciones();
+        lVentanaNumSuperior.setText("");
+        operador = false;
     }
 
     public void eventosNumeros() {
@@ -80,8 +85,8 @@ public class E144 extends javax.swing.JFrame {
         bComa = new javax.swing.JButton();
         bIgual = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
-        ventanaNumSuperior = new javax.swing.JLabel();
-        ventanaNums = new javax.swing.JLabel();
+        lVentanaNumSuperior = new javax.swing.JLabel();
+        lVentanaNums = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -133,11 +138,6 @@ public class E144 extends javax.swing.JFrame {
         bPorcentaje.setIconTextGap(0);
         bPorcentaje.setRequestFocusEnabled(false);
         bPorcentaje.setRolloverEnabled(false);
-        bPorcentaje.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bPorcentajeActionPerformed(evt);
-            }
-        });
         jPanel1.add(bPorcentaje);
 
         bDiv.setBackground(new java.awt.Color(51, 51, 51));
@@ -150,11 +150,6 @@ public class E144 extends javax.swing.JFrame {
         bDiv.setIconTextGap(0);
         bDiv.setRequestFocusEnabled(false);
         bDiv.setRolloverEnabled(false);
-        bDiv.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bDivActionPerformed(evt);
-            }
-        });
         jPanel1.add(bDiv);
 
         b7.setBackground(new java.awt.Color(51, 51, 51));
@@ -167,11 +162,6 @@ public class E144 extends javax.swing.JFrame {
         b7.setIconTextGap(0);
         b7.setRequestFocusEnabled(false);
         b7.setRolloverEnabled(false);
-        b7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b7ActionPerformed(evt);
-            }
-        });
         jPanel1.add(b7);
 
         b8.setBackground(new java.awt.Color(51, 51, 51));
@@ -184,11 +174,6 @@ public class E144 extends javax.swing.JFrame {
         b8.setIconTextGap(0);
         b8.setRequestFocusEnabled(false);
         b8.setRolloverEnabled(false);
-        b8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b8ActionPerformed(evt);
-            }
-        });
         jPanel1.add(b8);
 
         b9.setBackground(new java.awt.Color(51, 51, 51));
@@ -201,28 +186,18 @@ public class E144 extends javax.swing.JFrame {
         b9.setIconTextGap(0);
         b9.setRequestFocusEnabled(false);
         b9.setRolloverEnabled(false);
-        b9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b9ActionPerformed(evt);
-            }
-        });
         jPanel1.add(b9);
 
         bX.setBackground(new java.awt.Color(51, 51, 51));
         bX.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         bX.setForeground(new java.awt.Color(255, 51, 51));
-        bX.setText("X");
+        bX.setText("x");
         bX.setBorder(null);
         bX.setBorderPainted(false);
         bX.setFocusPainted(false);
         bX.setIconTextGap(0);
         bX.setRequestFocusEnabled(false);
         bX.setRolloverEnabled(false);
-        bX.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bXActionPerformed(evt);
-            }
-        });
         jPanel1.add(bX);
 
         b4.setBackground(new java.awt.Color(51, 51, 51));
@@ -235,11 +210,6 @@ public class E144 extends javax.swing.JFrame {
         b4.setIconTextGap(0);
         b4.setRequestFocusEnabled(false);
         b4.setRolloverEnabled(false);
-        b4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b4ActionPerformed(evt);
-            }
-        });
         jPanel1.add(b4);
 
         b5.setBackground(new java.awt.Color(51, 51, 51));
@@ -252,11 +222,6 @@ public class E144 extends javax.swing.JFrame {
         b5.setIconTextGap(0);
         b5.setRequestFocusEnabled(false);
         b5.setRolloverEnabled(false);
-        b5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b5ActionPerformed(evt);
-            }
-        });
         jPanel1.add(b5);
 
         b6.setBackground(new java.awt.Color(51, 51, 51));
@@ -269,11 +234,6 @@ public class E144 extends javax.swing.JFrame {
         b6.setIconTextGap(0);
         b6.setRequestFocusEnabled(false);
         b6.setRolloverEnabled(false);
-        b6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b6ActionPerformed(evt);
-            }
-        });
         jPanel1.add(b6);
 
         bResta.setBackground(new java.awt.Color(51, 51, 51));
@@ -286,11 +246,6 @@ public class E144 extends javax.swing.JFrame {
         bResta.setIconTextGap(0);
         bResta.setRequestFocusEnabled(false);
         bResta.setRolloverEnabled(false);
-        bResta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bRestaActionPerformed(evt);
-            }
-        });
         jPanel1.add(bResta);
 
         b1.setBackground(new java.awt.Color(51, 51, 51));
@@ -303,11 +258,6 @@ public class E144 extends javax.swing.JFrame {
         b1.setIconTextGap(0);
         b1.setRequestFocusEnabled(false);
         b1.setRolloverEnabled(false);
-        b1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b1ActionPerformed(evt);
-            }
-        });
         jPanel1.add(b1);
 
         b2.setBackground(new java.awt.Color(51, 51, 51));
@@ -320,11 +270,6 @@ public class E144 extends javax.swing.JFrame {
         b2.setIconTextGap(0);
         b2.setRequestFocusEnabled(false);
         b2.setRolloverEnabled(false);
-        b2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b2ActionPerformed(evt);
-            }
-        });
         jPanel1.add(b2);
 
         b3.setBackground(new java.awt.Color(51, 51, 51));
@@ -337,11 +282,6 @@ public class E144 extends javax.swing.JFrame {
         b3.setIconTextGap(0);
         b3.setRequestFocusEnabled(false);
         b3.setRolloverEnabled(false);
-        b3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b3ActionPerformed(evt);
-            }
-        });
         jPanel1.add(b3);
 
         bSuma.setBackground(new java.awt.Color(51, 51, 51));
@@ -369,7 +309,6 @@ public class E144 extends javax.swing.JFrame {
         bSalir.setBorderPainted(false);
         bSalir.setFocusPainted(false);
         bSalir.setIconTextGap(0);
-        bSalir.setOpaque(false);
         bSalir.setRequestFocusEnabled(false);
         bSalir.setRolloverEnabled(false);
         bSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -389,11 +328,6 @@ public class E144 extends javax.swing.JFrame {
         b0.setIconTextGap(0);
         b0.setRequestFocusEnabled(false);
         b0.setRolloverEnabled(false);
-        b0.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                b0ActionPerformed(evt);
-            }
-        });
         jPanel1.add(b0);
 
         bComa.setBackground(new java.awt.Color(51, 51, 51));
@@ -432,15 +366,15 @@ public class E144 extends javax.swing.JFrame {
 
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
 
-        ventanaNumSuperior.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        ventanaNumSuperior.setForeground(new java.awt.Color(255, 255, 255));
-        ventanaNumSuperior.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        ventanaNumSuperior.setText("0");
+        lVentanaNumSuperior.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lVentanaNumSuperior.setForeground(new java.awt.Color(255, 255, 255));
+        lVentanaNumSuperior.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lVentanaNumSuperior.setText("0");
 
-        ventanaNums.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        ventanaNums.setForeground(new java.awt.Color(255, 255, 255));
-        ventanaNums.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        ventanaNums.setText("0");
+        lVentanaNums.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lVentanaNums.setForeground(new java.awt.Color(255, 255, 255));
+        lVentanaNums.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lVentanaNums.setText("0");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -451,8 +385,8 @@ public class E144 extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(ventanaNumSuperior, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(ventanaNums, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lVentanaNumSuperior, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lVentanaNums, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
@@ -460,9 +394,9 @@ public class E144 extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(124, Short.MAX_VALUE)
-                .addComponent(ventanaNumSuperior)
+                .addComponent(lVentanaNumSuperior)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ventanaNums)
+                .addComponent(lVentanaNums)
                 .addGap(7, 7, 7)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(8, 8, 8)
@@ -475,96 +409,48 @@ public class E144 extends javax.swing.JFrame {
 
     private void botonNumeros(java.awt.event.ActionEvent evt) {
         JButton boton = (JButton) evt.getSource();
-        if (ventanaNums.getText().equals("0")) {
-            ventanaNums.setText("");
+        if (lVentanaNums.getText().equals("0") || operador) {
+            lVentanaNums.setText("");
+            operador = false;
         }
-        ventanaNums.setText(ventanaNums.getText() + boton.getText());
+        lVentanaNums.setText(lVentanaNums.getText() + boton.getText());
     }
 
     private void botonOperaciones(java.awt.event.ActionEvent evt) {
+        num1 = Double.parseDouble(lVentanaNums.getText().replace(",", "."));
+        
         JButton boton = (JButton) evt.getSource();
-        ventanaNumSuperior.setText(ventanaNums.getText() + boton.getText());
+        lVentanaNumSuperior.setText(lVentanaNums.getText() + boton.getText());
+        operador = true;
+        System.out.println(num1);
     }
 
     private void bAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAtrasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bAtrasActionPerformed
 
-    private void bPorcentajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPorcentajeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bPorcentajeActionPerformed
-
-    private void bDivActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDivActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bDivActionPerformed
-
-    private void b7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_b7ActionPerformed
-
-    private void b8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_b8ActionPerformed
-
-    private void b9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_b9ActionPerformed
-
-    private void bXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bXActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bXActionPerformed
-
-    private void b4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_b4ActionPerformed
-
-    private void b5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_b5ActionPerformed
-
-    private void b6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_b6ActionPerformed
-
-    private void bRestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRestaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bRestaActionPerformed
-
-    private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_b1ActionPerformed
-
-    private void b2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_b2ActionPerformed
-
-    private void b3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_b3ActionPerformed
-
-    private void bSumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSumaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bSumaActionPerformed
-
     private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_bSalirActionPerformed
 
-    private void b0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b0ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_b0ActionPerformed
-
     private void bComaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bComaActionPerformed
-        // TODO add your handling code here:
+        if (!lVentanaNums.getText().contains(","))
+            lVentanaNums.setText(lVentanaNums.getText() + ",");
     }//GEN-LAST:event_bComaActionPerformed
 
     private void bIgualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bIgualActionPerformed
-        // TODO add your handling code here:
+        num2 = Double.parseDouble(lVentanaNums.getText());
+        lVentanaNumSuperior.setText(String.valueOf(num1 + num2));
     }//GEN-LAST:event_bIgualActionPerformed
 
     private void bACActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bACActionPerformed
-        // TODO add your handling code here:
+        lVentanaNums.setText("0");
+        lVentanaNumSuperior.setText("");
     }//GEN-LAST:event_bACActionPerformed
+
+    private void bSumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSumaActionPerformed
+
+    }//GEN-LAST:event_bSumaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -629,7 +515,7 @@ public class E144 extends javax.swing.JFrame {
     private javax.swing.JButton bX;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JLabel ventanaNumSuperior;
-    private javax.swing.JLabel ventanaNums;
+    private javax.swing.JLabel lVentanaNumSuperior;
+    private javax.swing.JLabel lVentanaNums;
     // End of variables declaration//GEN-END:variables
 }

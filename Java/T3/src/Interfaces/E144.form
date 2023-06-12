@@ -28,8 +28,8 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jPanel1" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="ventanaNumSuperior" alignment="0" min="-2" pref="400" max="-2" attributes="0"/>
-                      <Component id="ventanaNums" alignment="0" min="-2" pref="400" max="-2" attributes="0"/>
+                      <Component id="lVentanaNumSuperior" alignment="0" min="-2" pref="400" max="-2" attributes="0"/>
+                      <Component id="lVentanaNums" alignment="0" min="-2" pref="400" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jSeparator1" alignment="1" min="-2" pref="400" max="-2" attributes="0"/>
               </Group>
@@ -41,9 +41,9 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace pref="124" max="32767" attributes="0"/>
-              <Component id="ventanaNumSuperior" min="-2" max="-2" attributes="0"/>
+              <Component id="lVentanaNumSuperior" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="ventanaNums" min="-2" max="-2" attributes="0"/>
+              <Component id="lVentanaNums" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
               <Component id="jSeparator1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
@@ -142,9 +142,6 @@
             <Property name="requestFocusEnabled" type="boolean" value="false"/>
             <Property name="rolloverEnabled" type="boolean" value="false"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bPorcentajeActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="bDiv">
           <Properties>
@@ -167,9 +164,6 @@
             <Property name="requestFocusEnabled" type="boolean" value="false"/>
             <Property name="rolloverEnabled" type="boolean" value="false"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bDivActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="b7">
           <Properties>
@@ -192,9 +186,6 @@
             <Property name="requestFocusEnabled" type="boolean" value="false"/>
             <Property name="rolloverEnabled" type="boolean" value="false"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b7ActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="b8">
           <Properties>
@@ -217,9 +208,6 @@
             <Property name="requestFocusEnabled" type="boolean" value="false"/>
             <Property name="rolloverEnabled" type="boolean" value="false"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b8ActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="b9">
           <Properties>
@@ -242,9 +230,6 @@
             <Property name="requestFocusEnabled" type="boolean" value="false"/>
             <Property name="rolloverEnabled" type="boolean" value="false"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b9ActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="bX">
           <Properties>
@@ -257,7 +242,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="X"/>
+            <Property name="text" type="java.lang.String" value="x"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
@@ -267,9 +252,6 @@
             <Property name="requestFocusEnabled" type="boolean" value="false"/>
             <Property name="rolloverEnabled" type="boolean" value="false"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bXActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="b4">
           <Properties>
@@ -292,9 +274,6 @@
             <Property name="requestFocusEnabled" type="boolean" value="false"/>
             <Property name="rolloverEnabled" type="boolean" value="false"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b4ActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="b5">
           <Properties>
@@ -317,9 +296,6 @@
             <Property name="requestFocusEnabled" type="boolean" value="false"/>
             <Property name="rolloverEnabled" type="boolean" value="false"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b5ActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="b6">
           <Properties>
@@ -342,9 +318,6 @@
             <Property name="requestFocusEnabled" type="boolean" value="false"/>
             <Property name="rolloverEnabled" type="boolean" value="false"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b6ActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="bResta">
           <Properties>
@@ -367,9 +340,6 @@
             <Property name="requestFocusEnabled" type="boolean" value="false"/>
             <Property name="rolloverEnabled" type="boolean" value="false"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bRestaActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="b1">
           <Properties>
@@ -392,9 +362,6 @@
             <Property name="requestFocusEnabled" type="boolean" value="false"/>
             <Property name="rolloverEnabled" type="boolean" value="false"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b1ActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="b2">
           <Properties>
@@ -417,9 +384,6 @@
             <Property name="requestFocusEnabled" type="boolean" value="false"/>
             <Property name="rolloverEnabled" type="boolean" value="false"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b2ActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="b3">
           <Properties>
@@ -442,9 +406,6 @@
             <Property name="requestFocusEnabled" type="boolean" value="false"/>
             <Property name="rolloverEnabled" type="boolean" value="false"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b3ActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="bSuma">
           <Properties>
@@ -489,7 +450,6 @@
             <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="focusPainted" type="boolean" value="false"/>
             <Property name="iconTextGap" type="int" value="0"/>
-            <Property name="opaque" type="boolean" value="false"/>
             <Property name="requestFocusEnabled" type="boolean" value="false"/>
             <Property name="rolloverEnabled" type="boolean" value="false"/>
           </Properties>
@@ -518,9 +478,6 @@
             <Property name="requestFocusEnabled" type="boolean" value="false"/>
             <Property name="rolloverEnabled" type="boolean" value="false"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b0ActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="bComa">
           <Properties>
@@ -581,7 +538,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="ventanaNumSuperior">
+    <Component class="javax.swing.JLabel" name="lVentanaNumSuperior">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="1"/>
@@ -593,7 +550,7 @@
         <Property name="text" type="java.lang.String" value="0"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="ventanaNums">
+    <Component class="javax.swing.JLabel" name="lVentanaNums">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="1"/>

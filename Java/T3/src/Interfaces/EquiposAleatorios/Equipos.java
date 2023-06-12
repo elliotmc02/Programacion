@@ -47,7 +47,6 @@ public class Equipos extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         tablaFrame.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        tablaFrame.setPreferredSize(new java.awt.Dimension(600, 375));
         tablaFrame.setResizable(false);
         tablaFrame.setSize(new java.awt.Dimension(600, 375));
         tablaFrame.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -57,11 +56,11 @@ public class Equipos extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Equipo 1", "Equipo 2"
+                "Pista", "Equipo 1", "Equipo 2"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -74,7 +73,9 @@ public class Equipos extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tabla);
         if (tabla.getColumnModel().getColumnCount() > 0) {
             tabla.getColumnModel().getColumn(0).setResizable(false);
+            tabla.getColumnModel().getColumn(0).setPreferredWidth(1);
             tabla.getColumnModel().getColumn(1).setResizable(false);
+            tabla.getColumnModel().getColumn(2).setResizable(false);
         }
 
         tablaFrame.getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 6, -1, 130));
@@ -142,7 +143,8 @@ public class Equipos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void nJugadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nJugadoresActionPerformed
-        int MAX_JUGADORES = 16;
+
+        int MAX_JUGADORES = 30;
         int MIN_JUGADORES = 4;
 
         if (!nJugadores.getText().isBlank()) {
@@ -182,7 +184,7 @@ public class Equipos extends javax.swing.JFrame {
         nJugadores.setText("");
         nJugadores.requestFocus();
     }//GEN-LAST:event_inicioActionPerformed
-    
+
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_salirActionPerformed
@@ -195,6 +197,7 @@ public class Equipos extends javax.swing.JFrame {
         ArrayList<String> parejas = new ArrayList<>();
         int fila = 0;
         int columna = 0;
+        int nPista = 1;
         int nRandom;
         DefaultTableModel model = (DefaultTableModel) tabla.getModel();
         model.setRowCount(0);
@@ -216,20 +219,22 @@ public class Equipos extends javax.swing.JFrame {
                 } while (parejas.contains(listaJugadores.get(nRandom)));
             }
             parejas.add(j2);
-
-            if (listaJugadores.size() % 4 == 0) {
-                model.setValueAt(j1 + (!j2.isBlank() ? " y " + j2 : ""), fila, columna);
+            
+            if (listaJugadores.size() % 4 == 0) { // si multiplo de 4
+                model.setValueAt(j1 + (!j2.isBlank() ? " y " + j2 : ""), fila, columna + 1);
             } else if (listaJugadores.size() == parejas.size()) {
-                model.setValueAt(j1, fila, columna);
-                model.setValueAt(j2, fila, columna + 1);
+                model.setValueAt(j1, fila, columna + 1);
+                model.setValueAt(j2, fila, columna + 2);
             } else {
-                model.setValueAt(j1 + (!j2.isBlank() ? " y " + j2 : ""), fila, columna);
+                model.setValueAt(j1 + (!j2.isBlank() ? " y " + j2 : ""), fila, columna + 1);
             }
-
+            model.setValueAt("Pista " + nPista, fila, 0);
+            
             columna++;
 
             if (columna == 2) {
                 columna = 0;
+                nPista++;
                 fila++;
             }
 

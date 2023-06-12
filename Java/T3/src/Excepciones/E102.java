@@ -1,6 +1,5 @@
 package Excepciones;
 
-
 import java.util.Scanner;
 
 public class E102 {
@@ -15,11 +14,9 @@ public class E102 {
 
         try {
             System.out.println("El caracter en la posicion " + n + " es " + p.charAt(n));
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
             System.out.println("No existe la posición " + n + " en la cadena");
         }
-
     }
 
 }
